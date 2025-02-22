@@ -6,42 +6,28 @@
     <title>HD Stream for Free!</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax dengan Tailwind</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
 <body class="flex items-center justify-center min-h-screen bg-gray-900 text-white">
-    <!-- Parallax Section -->
-<div class="relative h-screen bg-fixed bg-cover bg-center" style="background-image: url('gambar.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-    
-    <!-- Konten -->
-        <div class="w-full max-w-3xl p-4 text-center">
-            <a href="https://saweria.co/gootech" 
-           class="inline-block px-6 py-3 mb-4 text-lg font-medium text-white bg-green-600 rounded-lg shadow-md hover:bg-green-700">
+
+    <div class="w-full max-w-3xl p-4 text-center">
+        <a href="https://saweria.co/gootech" 
+           class="inline-block px-6 py-3 mt-4 text-lg font-medium text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700">
             Nyawer sini bang..
-            </a>
-            <div class="relative w-full overflow-hidden rounded-lg shadow-lg aspect-video">
-                <iframe id="embedFrame" 
+        </a>
+        <div class="relative w-full overflow-hidden rounded-lg shadow-lg aspect-video">
+            <iframe id="embedFrame" 
                 src="" 
                 title="Embedded Content"
                 class="absolute inset-0 w-full h-full border-none"
                 allowfullscreen>
-                </iframe>
-            </div>
-            <h1 id="pageTitle" class="mt-4 text-xl font-semibold">Watch Livestream <span id="pageTitle">Sport</span> for Free!</h1>
-            <a href="https://gootech.my.id/schedule" 
+            </iframe>
+        </div>
+        <h1 id="pageTitle" class="mt-4 text-xl font-semibold">Watch Livestream <span id="pageTitle">Sport</span> for Free!</h1>
+        <a href="https://gootech.my.id/schedule" 
            class="inline-block px-6 py-3 mt-4 text-lg font-medium text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700">
             Lihat jadwal di sini bang..
-            </a>
-        </div>
+        </a>
     </div>
-</div>
+
     <script>
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
