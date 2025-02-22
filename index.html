@@ -44,21 +44,22 @@
             iframe.src = "https://youtu.be/j9AfFztvNFA"; // URL default jika tidak ada parameter
         }
 
-        // Set title halaman dan h1 dari query parameter `title`
+        // Title
         const title = getQueryParam("title");
         if (title) {
             document.title = decodeURIComponent(title);
             document.getElementById("pageTitle").textContent = decodeURIComponent(title);
         }
-        
+        // Event
         const event = getQueryParam("event");
         if (event) {
-            document.title = decodeURIComponent(event);
+            document.event = decodeURIComponent(event);
             document.getElementById("pageEvent").textContent = decodeURIComponent(event);
         }
+        // Time WIB
         const time = getQueryParam("time");
         if (time) {
-            document.title = decodeURIComponent(time);
+            document.time = decodeURIComponent(time);
             document.getElementById("pageTime").textContent = decodeURIComponent(time);
         }
     </script>
