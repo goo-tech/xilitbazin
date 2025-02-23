@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HD Stream for Free!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-1/2 bg-gray-900 text-white">
+
+    <div class="w-full max-w-3xl p-4 text-center">
+        <a href="https://saweria.co/gootech" target="_blank"
+           class="inline-block px-3 py-1 mb-4 text-lg font-medium text-white bg-green-600 rounded-lg shadow-md hover:bg-green-700">
+            Nyawer sini bang..
+        </a>
+        <h1 class="mb-4 text-xl font-semibold">Nonton <span id="pageEvent">Sport</span> <span id="pageTime">Now</span> Mantap!</h1>
+            <iframe credentialless id="embedFrame" 
+                src="" 
+                title="Embedded Content"
+                class="absolute inset-0 w-full h-full border-none"
+                allowfullscreen
+                loading="lazy"
+            </iframe>
+        </div>
+        <h2 class="mt-4 text-xl font-semibold">Watch <span id="pageTitle">Sport</span> Livestream for Free!</h2>
+        <a href="https://gootech.my.id/schedule" 
+           class="inline-block px-3 py-1 mt-4 text-lg font-medium text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700">
+            Lihat jadwal di sini bang..
+        </a>
+
+    </div>
+<div>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        
+        // Set src iframe dari query parameter `url`
+        const iframe = document.getElementById("embedFrame");
+        const videoUrl = getQueryParam("url");
+        if (videoUrl) {
+            iframe.src = decodeURIComponent(videoUrl);
+        } else {
+            iframe.src = "https://youtube-nocookie.com/embed/j9AfFztvNFA";
+            // URL default jika tidak ada parameter
+        }
+        
+        // Title
+        const title = getQueryParam("title");
+        if (title) {
+            document.title = decodeURIComponent(title);
+            document.getElementById("pageTitle").textContent = decodeURIComponent(title);
+        }
+        // Event
+        const event = getQueryParam("event");
+        if (event) {
+            document.event = decodeURIComponent(event);
+            document.getElementById("pageEvent").textContent = decodeURIComponent(event);
+        }
+        // Time WIB
+        const time = getQueryParam("time");
+        if (time) {
+            document.time = decodeURIComponent(time);
+            document.getElementById("pageTime").textContent = decodeURIComponent(time);
+        }
+    </script>
+        <div>
+            <p>Tips nonton woles dari hape:
+            <br/>
+            <ol>
+            <li>Tunggu sampai live stream siap dan video muncul.</li>
+            <li>Jempol kiri untuk tap tombol [click here to unmute] di kiri atas video.</li>
+            <li>jempol kanan siap di atas tombol kembali hape.</li>
+            </ol>
+            <br/>
+            <p>Saat muncul pop-up iklan, jempol kanan bisa langsung tekan tombol kembali. Ini supaya jempol kiri bisa tap tombol [click here to unmute] lagi sampai keluar suara.<br/>Kemudian double tap video agar bisa tampil full-screen.<br/>tekan home untuk menonton dengan PiP (Picture in Picture) atau layar kecil mengambang.<br/>Kalau video tidak bisa PiP, ganti browser yang punya fitur PiP, misal Google Chrome atau Lemur Browser.<br/>Kalau masih tidak bisa juga, waktunya nonton video channel yutub gadgetin nyari ingpoh hape terbaru.</p>
+        </div>
+</body>
+</html>
