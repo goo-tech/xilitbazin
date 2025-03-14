@@ -3,62 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Live Streaming</title>
-</head>
-<body>
-
+  <link href='https://i0.wp.com/gootech.my.id/static/gootech-white.png?resize=96,96' rel='icon' sizes='96x96' type='image/png'/>
+<link href='https://gootech.my.id/static/gootech-black.svg' rel='icon' type='image/svg+xml'/>
+<link color='#122f69' href='https://gootech.my.id/static/gootech-white.svg' rel='mask-icon'/>
+<link href='https://gootech.my.id/_astro/favicon.DprfxhFn.ico' rel='shortcut icon'/>
+<link href='https://gootech.my.id/_astro/favicon.DprfxhFn.ico' rel='icon'/>
+<link href='https://gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png' rel='apple-touch-icon' sizes='180x180'/>
+<link href='https://i0.wp.com/gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png?resize=152,152' rel='apple-touch-icon' sizes='152x152'/>
+<link href='https://i0.wp.com/gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png?resize=48,48' rel='apple-touch-icon' sizes='48x48'/>
+<link href='https://i0.wp.com/gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png?resize=32,32' rel='apple-touch-icon' sizes='32x32'/>
+<link href='https://i0.wp.com/gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png?resize=16,16' rel='apple-touch-icon' sizes='16x16'/>
+<meta content='GooTech' name='apple-mobile-web-app-title'/>
+<link href='https://gootech.my.id/static/site.webmanifest' rel='manifest'/>
     <script>
-        // Hapus semua isi body
-        document.body.innerHTML = "";
+    // Hapus semua isi body
+    // document.body.innerHTML = "";
 
-        // Tambahkan kembali script Tailwind
-        const tailwindScript = document.createElement("script");
-        tailwindScript.src = "https://cdn.tailwindcss.com";
-        document.body.appendChild(tailwindScript);
+    // Tambahkan kembali script Tailwind
+    const tailwindScript = document.createElement("script");
+     tailwindScript.src = "https://cdn.tailwindcss.com";
+    document.head.appendChild(tailwindScript);
 
-        // Tunggu Tailwind dimuat sebelum lanjut
-        tailwindScript.onload = () => {
-            // Ambil parameter dari URL
-            const params = new URLSearchParams(window.location.search);
-            const time = params.get("time") || "00:00";
-            const eventTitle = params.get("event") || "Unknown Event";
-            const title = params.get("title") || "Live Streaming";
-            const url = params.get("url") || "https://www.youtube.com/embed/dQw4w9WgXcQ";
+    // Tunggu Tailwind dimuat sebelum lanjut
+    tailwindScript.onload = () => {
+        // Ambil parameter dari URL
+        const params = new URLSearchParams(window.location.search);
+        const time = params.get("time") || "Digital";
+        const eventTitle = params.get("event") || "Stream";
+        const title = params.get("title") || "Live in HD";
+        const url = params.get("url") || "https://gootech.my.id";
 
-            // Buat wrapper utama agar iframe berada di tengah halaman
-            const wrapper = document.createElement("div");
-            wrapper.className = "flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900";
+        // Update judul halaman
+        document.title = `${title} - ${eventTitle} - ${time}`;
 
-            // Buat elemen utama
-            const container = document.createElement("div");
-            container.className = "mx-auto px-6 max-w-3xl prose prose-lg dark:prose-invert text-center";
+        // Buat wrapper utama agar iframe berada di tengah halaman
+        const wrapper = document.createElement("div");
+        // wrapper.className = "flex items-center justify-center min-w-screen min-h-3/4 bg-blue-100 dark:bg-blue-900";
 
-            // Tambahkan judul
-            const heading = document.createElement("h1");
-            heading.className = "text-2xl font-bold text-gray-800 dark:text-gray-200";
-            heading.textContent = title;
-            container.appendChild(heading);
+        
+        // Buat elemen utama
+        const container = document.createElement("div");
+        container.className = "mx-auto w-96 prose prose-lg dark:prose-invert text-center";
+      
+        // Tambahkan judul
+        const heading = document.createElement("h1");
+        heading.className = "text-3xl font-bold text-blue-800 dark:text-blue-200";
+        heading.textContent = title;
+        container.appendChild(heading);
 
-            // Tambahkan waktu & event
-            const eventInfo = document.createElement("p");
-            eventInfo.className = "text-lg text-gray-600 dark:text-gray-400 mt-2";
-            eventInfo.textContent = `${time} - ${eventTitle}`;
-            container.appendChild(eventInfo);
+        // Tambahkan waktu & event
+        const eventInfo = document.createElement("p");
+        eventInfo.className = "text-lg text-blue-800 dark:text-blue-200 mt-4";
+        eventInfo.textContent = `${time} - ${eventTitle}`;
+        container.appendChild(eventInfo);
 
-            // Tambahkan video streaming
-            const videoWrapper = document.createElement("div");
-            videoWrapper.className = "relative w-full max-w-3xl bg-black rounded-lg overflow-hidden mt-4";
-            videoWrapper.innerHTML = `
-                <div class="aspect-video">
-                    <iframe class="w-full h-full" src="${decodeURIComponent(url)}" frameborder="0" allowfullscreen loading="lazy"></iframe>
-                </div>
-            `;
+        // Tambahkan video streaming
+        const videoWrapper = document.createElement("div");
+        videoWrapper.className = "relative w-full  bg-white dark:bg-[transparent] rounded-md overflow-hidden mt-4";
+        videoWrapper.innerHTML = `
+            <div class="aspect-video">
+                <iframe class="w-full h-full" src="${decodeURIComponent(url)}" frameborder="0"  loading="lazy" allow="layout-animations 'none'; oversized-images 'none'; sync-script 'none'; sync-xhr 'none';
+unoptimized-images 'none';
+unsized-media 'none'; fullscreen"></iframe>
+            </div>
+        `;
 
-            container.appendChild(videoWrapper);
-            wrapper.appendChild(container);
-            document.body.appendChild(wrapper);
-        };
-    </script>
+        container.appendChild(videoWrapper);
+        wrapper.appendChild(container);
+        document.body.appendChild(wrapper);
+    };
+</script>
 
+</head>
+<body class="flex items-center justify-center min-w-screen min-h-screen bg-blue-100 dark:bg-blue-900">
 </body>
 </html>
