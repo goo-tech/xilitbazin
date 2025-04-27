@@ -1,73 +1,82 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Live Streaming</title>
+<!DOCTYPE html>  
+<html lang="id">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="robots" content="noindex, nofollow">  
+    <title>Live Streaming</title>  
+  <link href='https://i0.wp.com/gootech.my.id/static/gootech-white.png?resize=96,96' rel='icon' sizes='96x96' type='image/png'/>  
+<link href='https://gootech.my.id/static/gootech-black.svg' rel='icon' type='image/svg+xml'/>  
+<link color='#122f69' href='https://gootech.my.id/static/gootech-white.svg' rel='mask-icon'/>  
+<link href='https://gootech.my.id/_astro/favicon.DprfxhFn.ico' rel='shortcut icon'/>  
+<link href='https://gootech.my.id/_astro/favicon.DprfxhFn.ico' rel='icon'/>  
+<link href='https://gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png' rel='apple-touch-icon' sizes='180x180'/>  
+<link href='https://i0.wp.com/gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png?resize=152,152' rel='apple-touch-icon' sizes='152x152'/>  
+<link href='https://i0.wp.com/gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png?resize=48,48' rel='apple-touch-icon' sizes='48x48'/>  
+<link href='https://i0.wp.com/gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png?resize=32,32' rel='apple-touch-icon' sizes='32x32'/>  
+<link href='https://i0.wp.com/gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png?resize=16,16' rel='apple-touch-icon' sizes='16x16'/>  
+<meta content='GooTech' name='apple-mobile-web-app-title'/>  
+<link href='https://gootech.my.id/static/site.webmanifest' rel='manifest'/>  
+    <script>  
+    // Hapus semua isi body  
+    // document.body.innerHTML = "";  
   
-  <!-- Favicon -->
-  <link href="https://i0.wp.com/gootech.my.id/static/gootech-white.png?resize=96,96" rel="icon" sizes="96x96" type="image/png"/>
-  <link href="https://gootech.my.id/static/gootech-black.svg" rel="icon" type="image/svg+xml"/>
-  <link href="https://gootech.my.id/_astro/favicon.DprfxhFn.ico" rel="shortcut icon"/>
-  <link href="https://gootech.my.id/_astro/apple-touch-icon.Ba41YPEN.png" rel="apple-touch-icon" sizes="180x180"/>
-  <link href="https://gootech.my.id/static/site.webmanifest" rel="manifest"/>
-
-  <meta name="theme-color" content="#122f69">
-  <meta name="apple-mobile-web-app-title" content="GooTech" />
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="min-h-screen flex items-center justify-center bg-blue-100 dark:bg-blue-900">
-
-<script>
-  const tailwindScript = document.querySelector('script[src*="tailwindcss"]');
-
-  tailwindScript.onload = () => {
-    const params = new URLSearchParams(window.location.search);
-    const time = params.get("time") || "Digital";
-    const eventTitle = params.get("event") || "Stream";
-    const title = params.get("title") || "Live in HD";
-    const url = params.get("url") || "https://gootech.my.id";
-
-    document.title = `${title} - ${eventTitle} - ${time}`;
-
-    // Wrapper
-    const wrapper = document.createElement("div");
-    wrapper.className = "w-full max-w-md md:max-w-2xl lg:max-w-4xl mx-auto p-4";
-
-    // Kontainer
-    const container = document.createElement("div");
-    container.className = "prose prose-lg dark:prose-invert text-center mx-auto";
-
-    // Heading
-    const heading = document.createElement("h1");
-    heading.className = "text-3xl font-bold text-blue-800 dark:text-blue-200";
-    heading.textContent = title;
-    container.appendChild(heading);
-
-    // Info event
-    const eventInfo = document.createElement("p");
-    eventInfo.className = "text-lg text-blue-800 dark:text-blue-200 mt-4";
-    eventInfo.textContent = `${time} - ${eventTitle}`;
-    container.appendChild(eventInfo);
-
-    // Video wrapper
-    const videoWrapper = document.createElement("div");
-    videoWrapper.className = "relative w-full bg-white dark:bg-transparent rounded-md overflow-hidden mt-6 shadow-lg";
-    videoWrapper.innerHTML = `
-      <div class="aspect-video">
-        <iframe class="w-full h-full" src="${decodeURIComponent(url)}" frameborder="0" loading="lazy" allowfullscreen
-          allow="layout-animations 'none'; oversized-images 'none'; sync-script 'none'; sync-xhr 'none'; unoptimized-images 'none'; unsized-media 'none'; fullscreen"></iframe>
-      </div>
-    `;
-
-    container.appendChild(videoWrapper);
-    wrapper.appendChild(container);
-    document.body.appendChild(wrapper);
-  };
-</script>
-
-</body>
+    // Tambahkan kembali script Tailwind  
+    const tailwindScript = document.createElement("script");  
+     tailwindScript.src = "https://cdn.tailwindcss.com";  
+    document.head.appendChild(tailwindScript);  
+  
+    // Tunggu Tailwind dimuat sebelum lanjut  
+    tailwindScript.onload = () => {  
+        // Ambil parameter dari URL  
+        const params = new URLSearchParams(window.location.search);  
+        const time = params.get("time") || "Digital";  
+        const eventTitle = params.get("event") || "Stream";  
+        const title = params.get("title") || "Live in HD";  
+        const url = params.get("url") || "https://gootech.my.id";  
+  
+        // Update judul halaman  
+        document.title = `${title} - ${eventTitle} - ${time}`;  
+  
+        // Buat wrapper utama agar iframe berada di tengah halaman  
+        const wrapper = document.createElement("div");  
+        // wrapper.className = "flex items-center justify-center min-w-screen min-h-3/4 bg-blue-100 dark:bg-blue-900";  
+  
+  
+        // Buat elemen utama  
+        const container = document.createElement("div");  
+        container.className = "mx-auto w-full max-w-md md:max-w-2xl lg:max-w-4xl prose prose-lg dark:prose-invert text-center";  
+  
+        // Tambahkan judul  
+        const heading = document.createElement("h1");  
+        heading.className = "text-3xl font-bold text-blue-800 dark:text-blue-200";  
+        heading.textContent = title;  
+        container.appendChild(heading);  
+  
+        // Tambahkan waktu & event  
+        const eventInfo = document.createElement("p");  
+        eventInfo.className = "text-lg text-blue-800 dark:text-blue-200 mt-4";  
+        eventInfo.textContent = `${time} - ${eventTitle}`;  
+        container.appendChild(eventInfo);  
+  
+        // Tambahkan video streaming  
+        const videoWrapper = document.createElement("div");  
+        videoWrapper.className = "relative w-full  bg-white dark:bg-[transparent] rounded-md overflow-hidden mt-4";  
+        videoWrapper.innerHTML = `  
+            <div class="aspect-video">  
+                <iframe class="w-full h-full" src="${decodeURIComponent(url)}" frameborder="0"  loading="lazy" allow="layout-animations 'none'; oversized-images 'none'; sync-script 'none'; sync-xhr 'none';  
+unoptimized-images 'none';  
+unsized-media 'none'; fullscreen" allowfullscreen></iframe>  
+            </div>  
+        `;  
+  
+        container.appendChild(videoWrapper);  
+        wrapper.appendChild(container);  
+        document.body.appendChild(wrapper);  
+    };  
+</script>  
+  
+</head>  
+<body class="flex items-center justify-center min-w-screen min-h-screen bg-blue-100 dark:bg-blue-900">  
+</body>  
 </html>
