@@ -45,7 +45,7 @@
         
         // Buat elemen utama
         const container = document.createElement("div");
-        container.className = "mx-auto w-96 prose prose-lg dark:prose-invert text-center";
+        container.className = "mx-auto w-full max-w-md md:max-w-2xl lg:max-w-4xl prose prose-lg dark:prose-invert text-center px-4";
       
         // Tambahkan judul
         const heading = document.createElement("h1");
@@ -64,9 +64,9 @@
         videoWrapper.className = "relative w-full  bg-white dark:bg-[transparent] rounded-md overflow-hidden mt-4";
         videoWrapper.innerHTML = `
             <div class="aspect-video">
-                <iframe class="w-full h-full" src="${decodeURIComponent(url)}" frameborder="0"  loading="lazy" allow="layout-animations 'none'; oversized-images 'none'; sync-script 'none'; sync-xhr 'none';
+                <iframe class="w-full h-full" src="${decodeURIComponent(url)}" frameborder="0" allowfullscreen loading="lazy" allow="layout-animations 'none'; oversized-images 'none'; sync-script 'none'; sync-xhr 'none';
 unoptimized-images 'none';
-unsized-media 'none'; fullscreen" allowfullscreen></iframe>
+unsized-media 'none'; fullscreen" ></iframe>
             </div>
         `;
 
