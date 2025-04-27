@@ -40,12 +40,13 @@
   
         // Buat wrapper utama agar iframe berada di tengah halaman  
         const wrapper = document.createElement("div");  
-        // wrapper.className = "flex items-center justify-center min-w-screen min-h-3/4 bg-blue-100 dark:bg-blue-900";  
+        // wrapper.className = "flex items-center justify-center min-w-screen min-h-3/4 bg-blue-100 dark:bg-blue-900"; <-- dipindah ke body, buat wrapper baru ↓ ambil dari container, menyisakan class teks
+        wrapper.className = "mx-auto w-full max-w-md md:max-w-2xl lg:max-w-4xl px-4";
   
   
         // Buat elemen utama  
         const container = document.createElement("div");  
-        container.className = "mx-auto w-full max-w-md md:max-w-2xl lg:max-w-4xl prose prose-lg dark:prose-invert text-center";  
+        container.className = "prose prose-lg dark:prose-invert text-center";  
   
         // Tambahkan judul  
         const heading = document.createElement("h1");  
